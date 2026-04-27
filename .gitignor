@@ -1,0 +1,57 @@
+# 🔐 Environment variables (VERY IMPORTANT)
+.env
+.env.*
+*.env
+
+# 🧠 Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 📦 Virtual environments
+venv/
+env/
+.venv/
+
+# 🛠️ Build / packaging
+build/
+dist/
+*.egg-info/
+
+# 🧪 Testing / coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# 🧾 Logs
+*.log
+
+# 💻 IDE / Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 📁 OS files
+.DS_Store
+Thumbs.db
+
+# 🔥 Jupyter notebooks checkpoints (if used)
+.ipynb_checkpoints/
+
+# 🧠 Model / AI related (important for your case)
+*.pt
+*.pth
+*.bin
+*.onnx
+*.ckpt
+
+# 📂 Large data files (avoid pushing heavy files)
+data/
+datasets/
+
+# 🔑 API keys / secrets (extra safety)
+secrets.json
+config.yaml
+config.yml
