@@ -55,3 +55,5 @@ datasets/
 secrets.json
 config.yaml
 config.yml
+
+server/

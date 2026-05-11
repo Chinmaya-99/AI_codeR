@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Space+Grotesk:wght@400;500&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#141313",
+                        "surface-tint": "#c6c6c7",
+                        "on-secondary-fixed-variant": "#474646",
+                        "surface-container": "#201f1f",
+                        "surface-container-highest": "#353434",
+                        "on-surface": "#e5e2e1",
+                        "surface-container-lowest": "#0e0e0e",
+                        "inverse-on-surface": "#313030",
+                        "on-secondary": "#313030",
+                        "surface-dim": "#141313",
+                        "on-tertiary-container": "#636565",
+                        "inverse-primary": "#5d5f5f",
+                        "primary-fixed": "#e2e2e2",
+                        "on-primary": "#2f3131",
+                        "on-error": "#690005",
+                        "outline": "#8e9192",
+                        "secondary": "#c8c6c5",
+                        "outline-variant": "#444748",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-secondary-container": "#bab8b7",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed": "#e2e2e2",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "primary-container": "#e2e2e2",
+                        "primary": "#ffffff",
+                        "on-tertiary": "#2f3131",
+                        "on-primary-fixed-variant": "#454747",
+                        "error": "#ffb4ab",
+                        "on-primary-container": "#636565",
+                        "error-container": "#93000a",
+                        "surface-bright": "#3a3939",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "tertiary-container": "#e2e2e2",
+                        "secondary-container": "#4a4949",
+                        "on-surface-variant": "#c4c7c8",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-container-high": "#2a2a2a",
+                        "inverse-surface": "#e5e2e1",
+                        "on-primary-fixed": "#1a1c1c",
+                        "tertiary": "#ffffff",
+                        "background": "#141313",
+                        "surface-variant": "#353434",
+                        "on-background": "#e5e2e1",
+                        "secondary-fixed": "#e5e2e1",
+                        "tertiary-fixed-dim": "#c6c6c7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "80px",
+                        "container-max": "1200px",
+                        "gutter": "24px",
+                        "xs": "8px",
+                        "sm": "12px",
+                        "md": "24px",
+                        "base": "4px",
+                        "lg": "48px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "h2": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "h1": ["Inter"],
+                        "display": ["Inter"],
+                        "code": ["Space Grotesk"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "h2": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "h1": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "display": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "code": ["14px", { "lineHeight": "1.7", "fontWeight": "400" }],
+                        "body-md": ["15px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .inner-glow {
+            box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .custom-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+        }
+    </style>
+</head>
+
+<body class="bg-black text-on-surface font-body-md overflow-x-hidden">
+    <!-- TopAppBar -->
+    <header
+        class="bg-black/80 backdrop-blur-[30px] text-white fixed top-0 w-full z-50 border-b border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.4)] flex justify-between items-center px-8 h-16 w-full">
+        <!-- <div class="text-lg font-black tracking-tighter text-white">CodR</div>
+        <nav class="hidden md:flex gap-8 items-center h-full">
+            <a class="font-['Inter'] tracking-tight text-sm uppercase font-semibold text-white border-b-2 border-white pb-1 transition-all"
+                href="#">Explorer</a>
+            <a class="font-['Inter'] tracking-tight text-sm uppercase font-semibold text-white/60 hover:text-white transition-colors duration-200"
+                href="#">Search</a>
+            <a class="font-['Inter'] tracking-tight text-sm uppercase font-semibold text-white/60 hover:text-white transition-colors duration-200"
+                href="#">Debug</a>
+            <a class="font-['Inter'] tracking-tight text-sm uppercase font-semibold text-white/60 hover:text-white transition-colors duration-200"
+                href="#">Terminal</a>
+        </nav> -->
+        <div class="flex items-center gap-4">
+            <button
+                class="font-['Inter'] tracking-tight text-sm uppercase font-semibold text-white/60 hover:text-white scale-95 active:opacity-80 transition-all">Log
+                In</button>
+            <button
+                class="bg-white text-black px-4 py-2 font-['Inter'] tracking-tight text-sm uppercase font-semibold scale-95 active:opacity-80 transition-all rounded-sm">Sign
+                Up</button>
+        </div>
+    </header>
+    <main class="relative pt-16">
+        <!-- Hero Section -->
+        <section class="relative h-[921px] flex items-center overflow-hidden">
+            <!-- Background Image with Overlay -->
+            <div class="absolute inset-0 z-0">
+
+                <!-- IMAGE -->
+                <img src="file_00000000f32c7208bc91db1389d521f7.png" class="absolute inset-0 w-full h-full object-cover">
+
+                <!-- DARK CONTROL -->
+                <!-- <div class="absolute inset-0 bg-black/40"></div> -->
+
+                <!-- LEFT GRADIENT -->
+                <!-- <div class="absolute inset-0 bg-gradient-to-r 
+       from-black via-black/70 to-transparent">
+                </div> -->
+
+            </div>
+            <div class="container-max mx-auto px-8 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-md items-center">
+                <div class="max-w-2xl">
+                    <h1 class="font-display text-display text-white mb-sm leading-tight">
+                        Minimal diffs.<br />Maximum control.
+                    </h1>
+                    <p class="font-body-lg text-body-lg text-white/70 mb-lg max-w-lg">
+                        AI that edits your code — not rewrites it. Experience the surgical precision of the
+                        next-generation code editor.
+                    </p>
+                    <div class="flex flex-wrap gap-md">
+                        <a href="get_started.html"
+                            class="bg-white text-black px-xl py-md font-['Inter'] font-semibold tracking-tight uppercase text-sm rounded-sm hover:opacity-90 transition-all scale-95 active:opacity-80">
+                            Get Started
+                    </a>
+                        <a href="README.text"
+                            class="bg-white/10 border border-white/15 backdrop-blur-md text-white px-xl py-md font-['Inter'] font-semibold tracking-tight uppercase text-sm rounded-sm hover:bg-white/20 transition-all scale-95 active:opacity-80">
+                            Read Docs
+                </a>
+                    </div>
+                </div>
+                <!-- Floating Code Card (Cinematic Element) -->
+                <div class="hidden md:block relative">
+                    <div class="glass-card p-md rounded-xl shadow-[50px_50px_40px_rgba(0,0,0,0.3)] rotate-1 translate-x-12" class="border border-white/30">
+                        <div class="flex gap-2 mb-md">
+                            <div class="w-3 h-3 rounded-full bg-white/20"></div>
+                            <div class="w-3 h-3 rounded-full bg-white/20"></div>
+                            <div class="w-3 h-3 rounded-full bg-white/20"></div>
+                        </div>
+                        <div class="font-code text-code space-y-1">
+                            <div class="text-white/40 flex gap-4"><span>1</span> <span class="text-white/80">function
+                                    initializeAether() {</span></div>
+                            <div class="text-white/40 flex gap-4"><span>2</span> <span class="text-white/80 ml-4">const
+                                    config = {</span></div>
+                            <div class="bg-error/10 text-error flex gap-4 w-full px-2 -mx-2"><span>3</span> <span
+                                    class="ml-4">- legacy_rewrite: true,</span></div>
+                            <div class="bg-emerald-500/10 text-emerald-400 flex gap-4 w-full px-2 -mx-2"><span>4</span>
+                                <span class="ml-4">+ precision_diff: true,</span>
+                            </div>
+                            <div class="text-white/40 flex gap-4"><span>5</span> <span
+                                    class="text-white/80 ml-4">};</span></div>
+                            <div class="text-white/40 flex gap-4"><span>6</span> <span class="text-white/80">}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Bento Grid Features -->
+        <section class="py-xl container-max mx-auto px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+                <!-- Large Feature -->
+                <div class="md:col-span-2 glass-card p-lg rounded-xl flex flex-col justify-between min-h-[400px]">
+                    <div>
+                        <span class="material-symbols-outlined text-white text-4xl mb-md">surgical</span>
+                        <h2 class="font-h1 text-h1 text-white mb-sm">Surgical Intelligence</h2>
+                        <p class="text-white/60 font-body-md max-w-md">Our LLMs are fine-tuned to suggest atomic
+                            changes. No more hallucinated rewrites or lost context.</p>
+                    </div>
+                    <div class="mt-lg">
+                        <img alt="Code Diffing visualization"
+                            class="w-full h-48 object-cover rounded-lg opacity-80 border border-white/5"
+                            data-alt="Macro close-up of a high-tech computer screen showing precise green and red code diffs in a dark cinematic environment"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyXQGhX3UkVgT6dFnDUp5W-9thn8rkHapKUVzwTgmDE44TwcETcUZ5HEdm5B-3uNjRqnhGHT2zmlo7H5I-MradkNRTUDw3-AagZqKh6C7CVUw0PfA10x8g2M6Ce0NTlhp3KJdrxz61bvPJacI3NBCVvKH9DKnZgL8wP61OBGe8F2Ge1IJqjc9vNc-ATy0RqugX3n7Z2njx5lJsfW8caUJuIpR2kKPul5pwq1h_Ikjjkd7mThRuyXd_sRNCUbPkNvhzTpufRQpcBUo" />
+                    </div>
+                </div>
+                <!-- Small Feature 1 -->
+                <div class="glass-card p-lg rounded-xl flex flex-col items-center text-center justify-center">
+                    <span class="material-symbols-outlined text-white text-4xl mb-md">bolt</span>
+                    <h3 class="font-h2 text-h2 text-white mb-xs">Instant Index</h3>
+                    <p class="text-white/60 font-label-sm">Real-time local embedding of your entire codebase.</p>
+                </div>
+                <!-- Small Feature 2 -->
+                <div class="glass-card p-lg rounded-xl flex flex-col items-center text-center justify-center">
+                    <span class="material-symbols-outlined text-white text-4xl mb-md">shield</span>
+                    <h3 class="font-h2 text-h2 text-white mb-xs">Local First</h3>
+                    <p class="text-white/60 font-label-sm">Your code never leaves your machine unless you want it to.
+                    </p>
+                </div>
+                <!-- Medium Feature -->
+                <div class="md:col-span-3 glass-card p-xl rounded-xl flex flex-col md:flex-row gap-lg items-center">
+                    <div class="flex-1">
+                        <h2 class="font-h1 text-h1 text-white mb-sm">Terminal Reimagined</h2>
+                        <p class="text-white/60 font-body-md mb-md">A GPU-accelerated terminal with built-in AI
+                            debugging and automated task runners. Seamlessly integrated into the editing flow.</p>
+                        <ul class="space-y-sm">
+                            <li class="flex items-center gap-xs text-white/80 font-label-sm">
+                                <span class="material-symbols-outlined text-xs">check_circle</span> 200ms latency floor
+                            </li>
+                            <li class="flex items-center gap-xs text-white/80 font-label-sm">
+                                <span class="material-symbols-outlined text-xs">check_circle</span> Native ZSH/Bash
+                                support
+                            </li>
+                        </ul>
+                    </div>
+                    <div
+                        class="flex-1 w-full bg-black/60 rounded-lg p-md border border-white/10 font-code text-xs text-emerald-400">
+                        <div class="flex gap-2 mb-2 text-white/20"><span>$</span> <span>aether optimize --diff</span>
+                        </div>
+                        <div class="text-white/80">Analyzing workspace complexity...</div>
+                        <div class="text-white/40">Found 3 bottlenecks in /src/core</div>
+                        <div class="mt-4 text-emerald-400">✔ Optimized 12 calls in 0.4s</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- CTA Section -->
+        <section class="py-xl bg-gradient-to-b from-black to-surface-container-lowest">
+            <div class="container-max mx-auto px-8 text-center max-w-3xl">
+                <h2 class="font-display text-h1 text-white mb-md">Build the future of software, faster.</h2>
+                <p class="text-white/60 font-body-lg mb-lg">Join 50,000+ developers engineering with precision.</p>
+                <button
+                    class="bg-white text-black px-xl py-md font-['Inter'] font-bold uppercase tracking-widest text-sm rounded-sm hover:scale-105 transition-all">
+                    Initialize Workspace
+                </button>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-black w-full py-12 border-t border-white/5 flex flex-col items-center gap-6">
+        <div class="flex gap-8">
+            <a class="font-['Inter'] text-[10px] uppercase tracking-widest text-white/40 hover:text-white transition-colors"
+                href="#">Privacy</a>
+            <a class="font-['Inter'] text-[10px] uppercase tracking-widest text-white/40 hover:text-white transition-colors"
+                href="#">Security</a>
+            <a class="font-['Inter'] text-[10px] uppercase tracking-widest text-white/40 hover:text-white transition-colors"
+                href="#">Changelog</a>
+            <a class="font-['Inter'] text-[10px] uppercase tracking-widest text-white/40 hover:text-white transition-colors"
+                href="#">Status</a>
+        </div>
+        <p class="font-['Inter'] text-[10px] uppercase tracking-widest text-white/40">
+         CodR. Precision engineered.
+        </p>
+    </footer>
+</body>
+
+</html>
