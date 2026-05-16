@@ -14,8 +14,6 @@ class DiffEngine:
         Takes the original code and the list of CodeDiff Pydantic objects.
         Returns the final modified code string.
         """
-        # 1. Split the original code into a list of lines
-        # (Assuming the LLM uses 1-based indexing for line numbers)
         lines = original_code.split('\n')
         
         # 2. Sort edits in REVERSE order by start_line
@@ -31,7 +29,7 @@ class DiffEngine:
             end_idx = edit.end_line - 1
             
             # Split the LLM's new code string into a list of lines
-            new_lines = edit.new_code.strip().split('\n') if edit.new_code else []
+            new_lines = edit.new_code.rstrip('\n').split('\n') if edit.new_code else []
             
             if edit.operation == 'replace':
                 # Slice out the old lines and inject the new ones
@@ -61,9 +59,8 @@ if __name__ == "__main__":
 
     sample_code = "def hello():\n    print('Hello')\n    print('World')\n    return False"
     
-    # Let's say the LLM wants to replace 'World' with 'CACE' and change return to True
     mock_edits = [
-        MockDiff("replace", 3, 3, "    print('CACE')"),
+        MockDiff("replace", 3, 3, "    print('codr')"),
         MockDiff("replace", 4, 4, "    return True")
     ]
     
