@@ -31,7 +31,7 @@ cace_project/
 │   ├── diff_engine.py      # Diff application logic
 │   ├── analyzer.py         # Code validation
 │   ├── models.py           # Pydantic models
-│   └── app.py              # Streamlit app (alternative UI)
+│   └── treesitter_validationn.py              # for large project validation
 │
 ├── server.py               # Flask API server
 ├── requirements.txt        # Python dependencies
@@ -111,15 +111,6 @@ Visit **http://localhost:5000** in your browser
 5. View the changes in the **Output** box
 6. Check **Details** for change statistics and reasoning
 
-### Option 2: Streamlit UI (Alternative)
-
-```bash
-streamlit run src/app.py
-```
-
-Visit `http://localhost:8501`
-
----
 
 ## 📝 Example Usage
 

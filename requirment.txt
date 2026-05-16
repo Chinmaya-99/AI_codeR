@@ -22,3 +22,5 @@ huggingface-hub
 python-dotenv
 numpy
 scikit-learn
+tree_sitter
+tree_sitter_python
