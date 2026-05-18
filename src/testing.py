@@ -117,10 +117,12 @@ formated_errors = ""
 for err in initial_analysis.errors:
     formated_errors += f"- Line {err['line']}: {err['description']} (Snippet: `{err['code_snippet']}`)\n"
 print(formated_errors) 
+
+
 diff_response = engine.get_edits(
     intent=intent,
     target_code=formated_code,
-    analysis=initial_analysis)
+    formatted_errors=formated_errors)
 
 print("\n========== GENERATED DIFF ==========\n")
 print(diff_response)
@@ -130,7 +132,7 @@ print(diff_response)
 # 4. APPLY DIFF
 # =========================================================
 engine = DiffEngine()
-updated_code = engine.apply_edits(target_code,diff_response)
+updated_code = engine.apply_edits(target_code,diff_response.diffs)
 
 print("\n========== PATCHED CODE ==========\n")
 print(updated_code)

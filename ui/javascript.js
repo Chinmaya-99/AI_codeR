@@ -99,9 +99,10 @@ function formatDiffs(diffs) {
     
     diffs.forEach((diff, index) => {
         const colors = {
-            'replace': 'bg-blue-500/10 border-blue-500/30',
-            'insert': 'bg-green-500/10 border-green-500/30',
-            'delete': 'bg-red-500/10 border-red-500/30'
+            // Increased background opacity, stronger borders, and added a local blur!
+            'replace': 'bg-blue-900/60 border-blue-400/50 backdrop-blur-md',
+            'insert': 'bg-green-900/60 border-green-400/50 backdrop-blur-md',
+            'delete': 'bg-red-900/60 border-red-400/50 backdrop-blur-md'
         };
         
         const icons = {
@@ -110,25 +111,26 @@ function formatDiffs(diffs) {
             'delete': '➖'
         };
         
-        const color = colors[diff.operation] || 'bg-white/5 border-white/20';
+        const color = colors[diff.operation] || 'bg-white/10 border-white/30 backdrop-blur-md';
         const icon = icons[diff.operation] || '📝';
         
         html += `
-            <div class="border ${color} rounded-lg p-3">
+            <div class="border ${color} rounded-lg p-3 shadow-lg">
                 <div class="flex items-start gap-2 mb-2">
                     <span class="text-lg">${icon}</span>
                     <div class="flex-1">
-                        <div class="text-white font-semibold text-sm">
+                        <div class="text-white font-bold text-sm drop-shadow-md">
                             ${diff.operation.toUpperCase()} 
-                            <span class="text-white/50">Lines ${diff.start_line}-${diff.end_line}</span>
+                            <span class="text-white/70 ml-2">Lines ${diff.start_line}-${diff.end_line}</span>
                         </div>
-                        <div class="text-white/60 text-xs mt-1">${diff.reasoning}</div>
+                        <div class="text-white/90 text-sm mt-1 font-medium drop-shadow-sm">${diff.reasoning}</div>
                     </div>
                 </div>
                 ${diff.new_code ? `
-                    <pre class="bg-black/40 p-2 rounded text-xs text-white/80 overflow-x-auto mt-2 font-mono">${escapeHtml(diff.new_code)}</pre>
+                    <pre class="bg-black/70 border border-white/10 p-2 rounded text-xs text-white overflow-x-auto mt-2 font-mono">${escapeHtml(diff.new_code)}</pre>
                 ` : ''}
             </div>
+        `;
         `;
     });
     

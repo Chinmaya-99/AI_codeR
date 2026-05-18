@@ -123,7 +123,7 @@
     <div class="container relative z-10 flex flex-col items-center gap-8 py-20 px-10">
 
         <!-- 1. SOURCE CODE BOX -->
-        <div id="sourceInput" class="input-div darken-glass-card text-white w-full max-w-4xl h-64"
+        <div id="sourceInput" class="input-div darken-glass-card text-white w-full max-w-4xl h-64 custom-scroll overflow-y-scroll p-4"
             contenteditable="true">
             Source code...
         </div>
@@ -154,11 +154,11 @@
 
 
         <!-- 3. RESULTS SECTION (Hidden initially) -->
-        <div id="resultSection" class="hidden w-full max-w-6xl grid grid-cols-2 gap-6">
-            <div id="outputBox" class="darken-glass-card h-96 p-4 text-white" contenteditable="true">
+        <div id="resultSection" class="Hidden w-full max-w-6xl grid grid-cols-2 gap-6">
+            <div id="outputBox" class="darken-glass-card h-96 p-4 text-white overflow-y-scroll custom-scroll" contenteditable="false">
                 Generated code...
             </div>
-            <div id="detailsBox" class="normal-glass-card h-96 p-4 text-white">
+            <div id="detailsBox" class="normal-glass-card h-96 p-4 text-white overflow-y-scroll custom-scroll darken-glass-card">
                 <h3 class="font-bold border-b border-white/10 mb-2">Details</h3>
                 <div id="detailsContent">Analyzing...</div>
             </div>
